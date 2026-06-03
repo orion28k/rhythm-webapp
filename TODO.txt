@@ -1,0 +1,10 @@
+Rhythm Dept — TODO List
+======================
+
+• Make header black with white club logo and white name font
+• Add About section content/text to the About Us page
+• Add images to the About Us page (founder photos)
+• Add Instagram handles on each member image (Members page)
+• Add new members to the Members page
+• Create / improve the Login Portal page
+• Add Login Portal link to the navigation (supabase backend)
