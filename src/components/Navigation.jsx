@@ -3,10 +3,11 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { label: 'Home',      path: '/'        },
-  { label: 'About Us',  path: '/about'   },
-  { label: 'Members',   path: '/members' },
-  { label: 'Gallery',   path: '/gallery' },
+  { label: 'Home',          path: '/'        },
+  { label: 'About Us',      path: '/about'   },
+  { label: 'Members',       path: '/members' },
+  { label: 'Gallery',       path: '/gallery' },
+  { label: 'Member Portal', path: '/portal'  },
 ]
 
 export default function Navigation() {
@@ -14,15 +15,13 @@ export default function Navigation() {
   const location = useLocation()
 
   return (
-    <nav className="bg-white sticky top-0 z-50 border-b border-gray-200">
+    <nav className="bg-black sticky top-0 z-50 border-b border-gray-800">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-24">
 
-        {/* Logo image */}
         <Link to="/">
-          <img src="/logo.svg" alt="Rhythm Dept" className="h-16 w-auto object-contain" />
+          <img src="/logo.svg" alt="Rhythm Dept" className="h-16 w-auto object-contain brightness-0 invert" />
         </Link>
 
-        {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map(link => {
             const active = location.pathname === link.path
@@ -31,7 +30,7 @@ export default function Navigation() {
                 key={link.path}
                 to={link.path}
                 className={`text-sm transition-colors duration-150 ${
-                  active ? 'text-black font-bold' : 'text-gray-500 hover:text-black font-normal'
+                  active ? 'text-white font-bold' : 'text-gray-400 hover:text-white font-normal'
                 }`}
               >
                 {link.label}
@@ -40,11 +39,10 @@ export default function Navigation() {
           })}
         </div>
 
-        {/* Mobile */}
         <div className="md:hidden flex items-center gap-3">
           <button
             onClick={() => setMobileOpen(v => !v)}
-            className="text-gray-600 hover:text-black"
+            className="text-gray-400 hover:text-white"
             aria-label="Menu"
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
@@ -53,9 +51,8 @@ export default function Navigation() {
 
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 px-6 py-3 space-y-1">
+        <div className="md:hidden bg-black border-t border-gray-800 px-6 py-3 space-y-1">
           {navLinks.map(link => {
             const active = location.pathname === link.path
             return (
@@ -64,7 +61,7 @@ export default function Navigation() {
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
                 className={`block py-2 text-sm ${
-                  active ? 'text-black font-bold' : 'text-gray-500'
+                  active ? 'text-white font-bold' : 'text-gray-400'
                 }`}
               >
                 {link.label}
