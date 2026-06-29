@@ -15,11 +15,13 @@ export default function Navigation() {
   const location = useLocation()
 
   return (
-    <nav className="bg-black sticky top-0 z-50 border-b border-gray-800">
+    <nav className="bg-black sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-24">
 
-        <Link to="/">
-          <img src="/logo.svg" alt="Rhythm Dept" className="h-16 w-auto object-contain brightness-0 invert" />
+        {/* Logo + brand */}
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/1000_F_96484581_Q3vNtFGKSyIRyoeliIJUMiZD0PBN0qtG.png" alt="Rhythm Dept logo" className="h-12 w-auto object-contain" />
+          <span className="text-white text-xl font-semibold tracking-wide">Rhythm Dept</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
@@ -29,8 +31,8 @@ export default function Navigation() {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`text-sm transition-colors duration-150 ${
-                  active ? 'text-white font-bold' : 'text-gray-400 hover:text-white font-normal'
+                className={`text-sm text-white transition-opacity duration-150 ${
+                  active ? 'font-bold' : 'font-normal opacity-70 hover:opacity-100'
                 }`}
               >
                 {link.label}
@@ -60,8 +62,8 @@ export default function Navigation() {
                 key={link.path}
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
-                className={`block py-2 text-sm ${
-                  active ? 'text-white font-bold' : 'text-gray-400'
+                className={`block py-2 text-sm text-white ${
+                  active ? 'font-bold' : 'font-normal opacity-70'
                 }`}
               >
                 {link.label}
